@@ -1,0 +1,63 @@
+encoding = "msgpack" # Four different encoding types are available: "json", "msgpack", "binc", and "cbor".
+defaultKey = "value" # The default key to use for the measured value. You can override this per output key.
+defaultUnitKey = "unit"
+
+[p1]
+device = "/dev/ttyUSB0"
+baudrate = 115200  # This differs per device, won't work if chosen wrong.
+
+[mqtt]
+baseTopic = "utilities/" # Whatever you put here will be prepended to the topics in the outputs
+host = "localhost:1883"
+clientID = "p1mqtt"
+
+[timestamp]
+OBIS = "0-0:1.0.0"
+key = "timestamp" # The key to use for the timestamp
+# You have some flexibility in specifying how the timestamp is formatted.
+# Choosing "unix" or "unixnano" will result in an integer representing the
+# number of seconds respectively nanoseconds since epoch. Any other value will
+# be interpreted as a date/time format string as per
+# https://golang.org/pkg/time/#pkg-constants
+format = "unixnano"
+
+[[outputs]]
+topic = "electricity/power/out"
+   [[outputs.keys]]
+   identifier = "1-0:2.7.0"
+
+[[outputs]]
+topic = "electricity/power/in"
+   [[outputs.keys]]
+   identifier = "1-0:1.7.0"
+
+[[outputs]]
+topic = "electricity/meter/in/tariff1"
+   [[outputs.keys]]
+   identifier = "1-0:1.8.1"
+
+[[outputs]]
+topic = "electricity/meter/in/tariff2"
+   [[outputs.keys]]
+   identifier = "1-0:1.8.2"
+
+# [[outputs]]
+# topic = "electricity/meter/out/tariff1"
+#    [[outputs.keys]]
+#    identifier = "1-0:2.8.1"
+
+# [[outputs]]
+# topic = "electricity/meter/out/tariff2"
+#    [[outputs.keys]]
+#    identifier = "1-0:2.8.2"
+
+[[outputs]]
+topic = "gas/meter/in"
+   [[outputs.keys]]
+   identifier = "0-1:24.2.1"
+
+[[outputs]]
+topic = "gas/use"
+   [[outputs.keys]]
+   delta = true # When delta=true the difference between the current and the previous value is used.
+   identifier = "0-1:24.2.1"
