@@ -1,5 +1,7 @@
 // A simple program that reads data from the P1 port of smart meter and
 // publishes it on an mqtt server.
+// Copyright (c) 2016 Maarten Everts. See LICENSE.
+
 package main
 
 import (
