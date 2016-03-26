@@ -217,7 +217,7 @@ func main() {
 
 					// Publish a message.
 					err = cli.Publish(&client.PublishOptions{
-						QoS:       mqtt.QoS1,
+						QoS:       mqtt.QoS0,
 						TopicName: []byte(output.Topic),
 						Message:   b,
 					})
