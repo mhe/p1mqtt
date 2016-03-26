@@ -22,3 +22,7 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Project specific directories and files
+p1mqtt
+testdata/*
