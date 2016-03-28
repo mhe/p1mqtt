@@ -22,42 +22,42 @@ key = "timestamp" # The key to use for the timestamp
 format = "unixnano"
 
 [[outputs]]
-topic = "electricity/power/out"
+topic = "electricity/out/power"
    [[outputs.keys]]
    identifier = "1-0:2.7.0"
 
 [[outputs]]
-topic = "electricity/power/in"
+topic = "electricity/in/power"
    [[outputs.keys]]
    identifier = "1-0:1.7.0"
 
 [[outputs]]
-topic = "electricity/meter/in/tariff1"
+topic = "electricity/in/meter1"
    [[outputs.keys]]
    identifier = "1-0:1.8.1"
 
 [[outputs]]
-topic = "electricity/meter/in/tariff2"
+topic = "electricity/in/meter2"
    [[outputs.keys]]
    identifier = "1-0:1.8.2"
 
 # [[outputs]]
-# topic = "electricity/meter/out/tariff1"
+# topic = "electricity/out/meter1"
 #    [[outputs.keys]]
 #    identifier = "1-0:2.8.1"
 
 # [[outputs]]
-# topic = "electricity/meter/out/tariff2"
+# topic = "electricity/out/meter2"
 #    [[outputs.keys]]
 #    identifier = "1-0:2.8.2"
 
 [[outputs]]
-topic = "gas/meter/in"
+topic = "gas/in/meter"
    [[outputs.keys]]
    identifier = "0-1:24.2.1"
 
 [[outputs]]
-topic = "gas/use"
+topic = "gas/in/perhour"
    [[outputs.keys]]
    delta = true # When delta=true the difference between the current and the previous value is used.
    identifier = "0-1:24.2.1"
