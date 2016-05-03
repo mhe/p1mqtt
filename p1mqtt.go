@@ -143,7 +143,7 @@ func main() {
 	}
 	h, ok := encodingMap[conf.Encoding]
 	if !ok {
-		log.Fatal("Unsupporting encoding specified in configuration file: ", conf.Encoding)
+		log.Fatal("Unsupported encoding specified in configuration file: ", conf.Encoding)
 	}
 
 	// Check QoS value
