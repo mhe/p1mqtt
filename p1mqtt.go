@@ -37,6 +37,7 @@ type Config struct {
 		BaseTopic string
 		Host      string
 		ClientID  string
+		QoS       byte
 	}
 	Timestamp struct {
 		OBIS   string
@@ -143,6 +144,11 @@ func main() {
 	h, ok := encodingMap[conf.Encoding]
 	if !ok {
 		log.Fatal("Unsupporting encoding specified in configuration file: ", conf.Encoding)
+	}
+
+	// Check QoS value
+	if !mqtt.ValidQoS(conf.Mqtt.QoS) {
+		log.Fatal("Invalid QoS value specified in configuration file: ", conf.Mqtt.QoS)
 	}
 
 	// Ok, let's start reading
